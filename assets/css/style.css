@@ -6,6 +6,12 @@
 
 body {
     font-family: Roboto,Arial,sans-serif;
+    overflow-x: hidden;
+}
+
+::selection {
+    color: #fff;
+    background: #FFDD00;
 }
 
 @media only screen and (min-width:1200px) {
@@ -24,6 +30,20 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media only screen and (max-width:768px) {
+    .container {
+        max-width: 100%;
+        /* padding: 0; */
+    }
+    .show-result {
+        height: 500px;
+        background-position: top;
+    }
+    .setting-footer {
+        padding-inline: 15px;
+    }
 }
 
 .note-left-content {
@@ -47,6 +67,27 @@ body {
     cursor: grabbing;
 }
 
+.suggestions {
+    margin-block: 10px;
+}
+.suggestions .suggestion-wrapper {
+    padding:5px 20px;
+    box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
+    /* max-height: 100px; */
+    overflow: auto;
+}
+.suggestions ul li h1 {
+    font-size: 18px;
+    margin-block: 20px;
+    cursor: pointer;
+}
+
+.suggestions ul li h1 span {
+    color: #fff;
+    font-family: Bayview;
+    font-size: 50px;
+    margin-right: 5px;
+}
 
 /* END LEFT CONTENT */
 
@@ -179,6 +220,7 @@ body {
 .tab-pick-font ul li a{
     font-size: 14px;
     color: #000;
+    cursor: pointer;
 }
 .tab-pick-font ul li a:hover {
     color: #FFDD00;
@@ -188,9 +230,6 @@ body {
     color: red;
 }
 
-.tab-pick-color {
-    padding-inline: 15px;
-}
 .tab-pick-color li p {
     text-align: center;
 }
@@ -206,6 +245,19 @@ body {
     font-size: 13px;
     display: block;
     margin-top: 10px;
+}
+
+.tab-pick-color .image-by-color {
+    text-align: center;
+    padding: 10px 5px;
+    background-color: #f5f5f5;
+    margin-bottom: 20px;
+}
+.tab-pick-color .image-by-color p {
+    text-align: center;
+    font-style: italic;
+    font-size: 12px;
+    margin-bottom: 5px;
 }
 /* END RIGHT CONTENT */
 
