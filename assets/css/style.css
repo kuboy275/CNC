@@ -73,13 +73,15 @@ body {
 .suggestions .suggestion-wrapper {
     padding:5px 20px;
     box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
-    /* max-height: 100px; */
+    max-height: 170px;
     overflow: auto;
+    background: #000;
 }
 .suggestions ul li h1 {
     font-size: 18px;
     margin-block: 20px;
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .suggestions ul li h1 span {
