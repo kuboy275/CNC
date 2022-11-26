@@ -66,6 +66,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/fonts.css">
 
@@ -79,6 +80,7 @@
                 <div class="col-md-12 col-lg-8">
                     <div class="left-content">
                         <div class="show-result">
+                            <div class="image-preview"></div>
                             <h1 class="text-show shadow-pink"> Led Neon Sign </h1>
                         </div>
                         <div class="suggestions">
@@ -150,6 +152,12 @@
                                 <textarea id="text-area" name="text-enter"
                                     placeholder="Nhập chữ tại đây. Nhập enter để xuống dòng (Viết không dấu)" cols="30"
                                     rows="2"></textarea>
+                                <p class="mb-1"> Thêm ảnh: </p>
+                                <div class="custom-file my-1">
+                                    <input type="file" class="custom-file-input" name="photograph"  id="photo" required="true" />
+                                    <label class="custom-file-label" for="customFile">Choose file</label>
+                                </div>
+                                <p class="text-danger mb-4">*Chỉ tải ảnh có định dạng: gif, png, jpg, jpeg, svg và nền trong</p>
                             </div>
                             <div class="tab-pane fade tab-pick-font" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <p class="text-center">Chọn Font</p>
@@ -628,6 +636,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
     <script src="./assets/js/app.js"></script>

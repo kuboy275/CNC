@@ -57,7 +57,7 @@ body {
 
 .text-show {
     display: inline-block;
-    cursor: grab;
+    cursor: all-scroll;
     font-size: 70px;
     color: #fff;
     font-family: Bayview;
@@ -65,6 +65,32 @@ body {
 
 .text-show:focus-within {
     cursor: grabbing;
+}
+
+.image-preview {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    cursor: all-scroll;
+}
+
+.image-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-preview .ui-resizable-handle.ui-icon {
+    background-image: url('../images/resize-icon-1.png');
+    background-size: contain;
+    background-position: center;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    right: -20px;
+    bottom:-20px;
 }
 
 .suggestions {
@@ -102,6 +128,8 @@ body {
     -webkit-box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
     -moz-box-shadow: 0 6px 23px -2px rgba(0,0,0,0.27);
     box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
+    position: sticky;
+    top: 5px;
 }
 
 .nav-config {
@@ -171,7 +199,7 @@ body {
     padding: 5px;
     font-size: 16px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-block: 15px;
 }
 
 .tab-content-config #text-area:focus{

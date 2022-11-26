@@ -1,7 +1,15 @@
 $(document).ready(function() {
     $(".text-show").draggable({
-        containment: ".show-result"
+        containment: ".show-result",
+        cursor: "all-scroll"
     });  
+
+    $(".image-preview").draggable({
+        containment: ".show-result",
+        cursor: "all-scroll"
+    });
+
+    $(".image-preview").resizable();
     
     const textShow = $('.text-show');
 
@@ -11,8 +19,34 @@ $(document).ready(function() {
         changeFontSize(textShow,val);
     });
 
+    /* Upload Icon */
+    $("#photo").change(function () {
+        const file = this.files[0];
+        /* validation file */
+        var ext = $(this).val().split('.').pop().toLowerCase();
+        if($.inArray(ext, ['gif','png','jpg','jpeg','svg']) == -1) {
+            alert('File không đúng định dạng, vui lòng tải lại!');
+        } else {
+            if (file) {
+                $('.image-preview .ui-icon').css('opacity','.8')
+                let reader = new FileReader();
+                reader.onload = function (event) {
+                    var img = $('<img id="image-draggable">');
+                    img.attr('src', event.target.result);
+                    img.appendTo('.image-preview');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    });
+
     $('body').on('keyup','#text-area',function() {
-        textShow.text($(this).val());
+        var val = $(this).val().trim();
+        textShow.text(val);
+
+        var lines = val.split(/\n/);
+        console.log(lines);
+        
     })
 
     $('.js-click-font').on('click',function(e) {
@@ -28,14 +62,15 @@ $(document).ready(function() {
         var classNameColor = $(this).data('name');
         var imageColor = $(this).parent().attr('data-image') ? $(this).parent().data('image') : false;
 
+        /* Change background */
         var urlImage = './assets/images/color-image/';
-
         if (imageColor != false) {
             $('.image-by-color img').attr('src',urlImage + imageColor);
         } else {
             $('.image-by-color img').attr('src','./assets/images/color-image/pink.jpg');
         }
 
+        /* Change Color */
         textShow.removeClass( function(index,className){
             return (className.match (/(^|\s)shadow-\S+/g) || []).join('');
         });
@@ -46,10 +81,6 @@ $(document).ready(function() {
     });
 
 
-    var ele =  $('.text-suggestion span');
-    for (var i = 0; i < ele.length; i++) {
-        ele.eq(i).addClass('shadow-' + get_random());
-    }
 
 });
 
@@ -64,4 +95,12 @@ function get_random () {
         arr.push(color);
     })
     return arr[Math.floor((Math.random()*arr.length))];
+}
+
+/* Suggestions color section */
+function suggestionsText() {
+    var ele =  $('.text-suggestion span');
+    for (var i = 0; i < ele.length; i++) {
+        ele.eq(i).addClass('shadow-' + get_random());
+    }
 }
