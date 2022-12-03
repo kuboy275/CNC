@@ -43,10 +43,10 @@ $(document).ready(function() {
     $('body').on('keyup','#text-area',function() {
         var val = $(this).val().trim();
         textShow.text(val);
-
-        var lines = val.split(/\n/);
-        console.log(lines);
-        
+        // lines = val.split(" ");
+        // $.each(lines,function(i,line) {
+        //     $(`<span class="shadow-${get_random()}"> ${line} </span>`).appendTo(".text-suggestion");
+        // })
     })
 
     $('.js-click-font').on('click',function(e) {
@@ -80,7 +80,7 @@ $(document).ready(function() {
         
     });
 
-
+    suggestionsText();
 
 });
 
@@ -103,4 +103,7 @@ function suggestionsText() {
     for (var i = 0; i < ele.length; i++) {
         ele.eq(i).addClass('shadow-' + get_random());
     }
+    $('.text-suggestion').on('click',function(evt){
+        $('.text-show').empty().append($(this).html());
+    });
 }
