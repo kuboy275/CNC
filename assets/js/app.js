@@ -40,14 +40,50 @@ $(document).ready(function() {
         }
     });
 
-    $('body').on('keyup','#text-area',function() {
-        var val = $(this).val().trim();
-        textShow.text(val);
-        // lines = val.split(" ");
-        // $.each(lines,function(i,line) {
-        //     $(`<span class="shadow-${get_random()}"> ${line} </span>`).appendTo(".text-suggestion");
-        // })
+    $('.btn-approved').on('click', function(){
+        var val = $('#text-area').val().trim();
+        if ( val.length === 0 ) {
+            alert('Vui Lòng Nhập Văn Bản')
+        } else {
+            var valArr = val.split(" ");
+            textShow.empty();
+            $.each(valArr, function(i,ele){
+                $(`<div class='d-inline-block mr-4 child ${i}'> ${ele} 
+                        <div class="show-color bg-white border-round d-none p-2">
+                            <div class="color-wrapper d-flex justify-content-between">
+                                <button data-color="shadow-white" class="item-color bg-shadow-white"></button>
+                                <button data-color="shadow-orange" class="item-color bg-shadow-orange"></button>
+                                <button data-color="shadow-yellow" class="item-color bg-shadow-yellow"></button>
+                                <button data-color="shadow-mint" class="item-color bg-shadow-mint"></button>
+                                <button data-color="shadow-green" class="item-color bg-shadow-green"></button>
+                                <button data-color="shadow-deep-blue" class="item-color bg-shadow-deep-blue"></button>
+                                <button data-color="shadow-purple" class="item-color bg-shadow-purple"></button>
+                                <button data-color="shadow-pink" class="item-color bg-shadow-pink"></button>
+                                <button data-color="shadow-red" class="item-color bg-shadow-red"></button>
+                            </div> 
+                        </div>
+                    </div>`).appendTo(textShow);
+            })
+        }
     })
+
+    $(document).on('click','.text-show .child', function(){
+        $('.text-show .child .show-color').addClass('d-none');
+        var showColor = $(this).find('.show-color');
+        showColor.removeClass('d-none');
+    });
+
+    $(document).on('click','.text-show .show-color .item-color',function(e){
+        e.stopPropagation();
+        var classColor = $(this).data('color');
+        var textParent = $(this).parent().closest('.child');
+        textParent.removeClass( function(index,className){
+            return (className.match (/(^|\s)shadow-\S+/g) || []).join('');
+        });
+        textParent.addClass(classColor);
+        $('.text-show .child .show-color').addClass('d-none');
+    })
+
 
     $('.js-click-font').on('click',function(e) {
         e.preventDefault();
@@ -80,7 +116,6 @@ $(document).ready(function() {
         
     });
 
-    suggestionsText();
 
 });
 
@@ -88,22 +123,22 @@ function changeFontSize(element,sizeValue) {
     element.css('font-size',sizeValue + 'px');
 }
 
-function get_random () {
-    var arr = [];
-    $('.js-click-color').each(function(i,val){
-        var color = $(val).data('name');
-        arr.push(color);
-    })
-    return arr[Math.floor((Math.random()*arr.length))];
-}
+// function get_random () {
+//     var arr = [];
+//     $('.js-click-color').each(function(i,val){
+//         var color = $(val).data('name');
+//         arr.push(color);
+//     })
+//     return arr[Math.floor((Math.random()*arr.length))];
+// }
 
 /* Suggestions color section */
-function suggestionsText() {
-    var ele =  $('.text-suggestion span');
-    for (var i = 0; i < ele.length; i++) {
-        ele.eq(i).addClass('shadow-' + get_random());
-    }
-    $('.text-suggestion').on('click',function(evt){
-        $('.text-show').empty().append($(this).html());
-    });
-}
+// function suggestionsText() {
+//     var ele =  $('.text-suggestion span');
+//     for (var i = 0; i < ele.length; i++) {
+//         ele.eq(i).addClass('shadow-' + get_random());
+//     }
+//     $('.text-suggestion').on('click',function(evt){
+//         $('.text-show').empty().append($(this).html());
+//     });
+// }

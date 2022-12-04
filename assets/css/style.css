@@ -66,7 +66,26 @@ body {
 .text-show:focus-within {
     cursor: grabbing;
 }
-
+.text-show .child {
+    position: relative;
+}
+.text-show .show-color {
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.text-show .show-color .color-wrapper {
+    flex-wrap: wrap;
+    width: 120px;
+}
+.text-show .show-color .color-wrapper .item-color {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
 .image-preview {
     position: relative;
     width: 50px;
@@ -293,6 +312,34 @@ body {
 
 
 /* CLAS GLOBAL */
+
+.bg-shadow-white {
+    background: #f4fcfb;
+}
+.bg-shadow-orange {
+    background: #f96f06;
+}
+.bg-shadow-mint {
+    background: #80ffd9;
+}
+.bg-shadow-red {
+    background: #eb1212;
+}
+.bg-shadow-deep-blue {
+    background: #0274fc;
+}
+.bg-shadow-pink {
+    background: #f50abe;
+}
+.bg-shadow-purple {
+    background: #cd65ed;
+}
+.bg-shadow-green {
+    background: #63e90b;
+}
+.bg-shadow-yellow {
+    background: #f3da09;
+}
 
 
 .shadow-red {
