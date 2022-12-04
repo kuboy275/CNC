@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $(".text-show").draggable({
         containment: ".show-result",
         cursor: "all-scroll"
-    });  
+    });
 
     $(".image-preview").draggable({
         containment: ".show-result",
@@ -10,13 +10,13 @@ $(document).ready(function() {
     });
 
     $(".image-preview").resizable();
-    
+
     const textShow = $('.text-show');
 
-    $('body').on('input','#inputRangeSize',function(){
+    $('body').on('input', '#inputRangeSize', function () {
         let val = $(this).val();
         $('.label-ranger .js-font-size').text(val)
-        changeFontSize(textShow,val);
+        changeFontSize(textShow, val);
     });
 
     /* Upload Icon */
@@ -24,11 +24,11 @@ $(document).ready(function() {
         const file = this.files[0];
         /* validation file */
         var ext = $(this).val().split('.').pop().toLowerCase();
-        if($.inArray(ext, ['gif','png','jpg','jpeg','svg']) == -1) {
+        if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg', 'svg']) == -1) {
             alert('File không đúng định dạng, vui lòng tải lại!');
         } else {
             if (file) {
-                $('.image-preview .ui-icon').css('opacity','.8')
+                $('.image-preview .ui-icon').css('opacity', '.8')
                 let reader = new FileReader();
                 reader.onload = function (event) {
                     var img = $('<img id="image-draggable">');
@@ -40,14 +40,14 @@ $(document).ready(function() {
         }
     });
 
-    $('.btn-approved').on('click', function(){
+    $('.btn-approved').on('click', function () {
         var val = $('#text-area').val().trim();
-        if ( val.length === 0 ) {
+        if (val.length === 0) {
             alert('Vui Lòng Nhập Văn Bản')
         } else {
             var valArr = val.split(" ");
             textShow.empty();
-            $.each(valArr, function(i,ele){
+            $.each(valArr, function (i, ele) {
                 $(`<div class='d-inline-block mr-4 child ${i}'> ${ele} 
                         <div class="show-color bg-white border-round d-none p-2">
                             <div class="color-wrapper d-flex justify-content-between">
@@ -67,33 +67,33 @@ $(document).ready(function() {
         }
     })
 
-    $(document).on('click','.text-show .child', function(){
+    $(document).on('click', '.text-show .child', function () {
         $('.text-show .child .show-color').addClass('d-none');
         var showColor = $(this).find('.show-color');
         showColor.removeClass('d-none');
     });
 
-    $(document).on('click','.text-show .show-color .item-color',function(e){
+    $(document).on('click', '.text-show .show-color .item-color', function (e) {
         e.stopPropagation();
         var classColor = $(this).data('color');
         var textParent = $(this).parent().closest('.child');
-        textParent.removeClass( function(index,className){
-            return (className.match (/(^|\s)shadow-\S+/g) || []).join('');
+        textParent.removeClass(function (index, className) {
+            return (className.match(/(^|\s)shadow-\S+/g) || []).join('');
         });
         textParent.addClass(classColor);
         $('.text-show .child .show-color').addClass('d-none');
     })
 
 
-    $('.js-click-font').on('click',function(e) {
+    $('.js-click-font').on('click', function (e) {
         e.preventDefault();
         $('.js-click-font').removeClass('current');
         $(this).addClass('current');
 
-        textShow.css('font-family',$(this).data('name'));
+        textShow.css('font-family', $(this).data('name'));
     })
 
-    $('.js-click-color').on('click',function(e){
+    $('.js-click-color').on('click', function (e) {
 
         var classNameColor = $(this).data('name');
         var imageColor = $(this).parent().attr('data-image') ? $(this).parent().data('image') : false;
@@ -101,26 +101,26 @@ $(document).ready(function() {
         /* Change background */
         var urlImage = './assets/images/color-image/';
         if (imageColor != false) {
-            $('.image-by-color img').attr('src',urlImage + imageColor);
+            $('.image-by-color img').attr('src', urlImage + imageColor);
         } else {
-            $('.image-by-color img').attr('src','./assets/images/color-image/pink.jpg');
+            $('.image-by-color img').attr('src', './assets/images/color-image/pink.jpg');
         }
 
         /* Change Color */
-        textShow.removeClass( function(index,className){
-            return (className.match (/(^|\s)shadow-\S+/g) || []).join('');
+        textShow.removeClass(function (index, className) {
+            return (className.match(/(^|\s)shadow-\S+/g) || []).join('');
         });
-        textShow.addClass('shadow-'+ classNameColor );
-        $('.js-click-color').find('span').css('color','');
-        $(this).find('span').css('color',$(this).data('value'));
-        
+        textShow.addClass('shadow-' + classNameColor);
+        $('.js-click-color').find('span').css('color', '');
+        $(this).find('span').css('color', $(this).data('value'));
+
     });
 
 
 });
 
-function changeFontSize(element,sizeValue) {
-    element.css('font-size',sizeValue + 'px');
+function changeFontSize(element, sizeValue) {
+    element.css('font-size', sizeValue + 'px');
 }
 
 // function get_random () {

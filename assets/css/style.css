@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Roboto,Arial,sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     overflow-x: hidden;
 }
 
@@ -37,10 +37,12 @@ body {
         max-width: 100%;
         /* padding: 0; */
     }
+
     .show-result {
         height: 500px;
         background-position: top;
     }
+
     .setting-footer {
         padding-inline: 15px;
     }
@@ -66,19 +68,23 @@ body {
 .text-show:focus-within {
     cursor: grabbing;
 }
+
 .text-show .child {
     position: relative;
 }
+
 .text-show .show-color {
     position: absolute;
     top: -150%;
     left: 50%;
     transform: translateX(-50%);
 }
+
 .text-show .show-color .color-wrapper {
     flex-wrap: wrap;
     width: 120px;
 }
+
 .text-show .show-color .color-wrapper .item-color {
     border-radius: 50%;
     width: 30px;
@@ -86,6 +92,7 @@ body {
     margin-right: 5px;
     margin-bottom: 5px;
 }
+
 .image-preview {
     position: relative;
     width: 50px;
@@ -109,19 +116,21 @@ body {
     width: 20px;
     height: 20px;
     right: -20px;
-    bottom:-20px;
+    bottom: -20px;
 }
 
 .suggestions {
     margin-block: 10px;
 }
+
 .suggestions .suggestion-wrapper {
-    padding:5px 20px;
+    padding: 5px 20px;
     box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
     max-height: 400px;
     overflow: auto;
     background: #000;
 }
+
 .suggestions ul li h1 {
     font-size: 18px;
     margin-block: 20px;
@@ -145,7 +154,7 @@ body {
     padding: 15px 15px 30px;
     border-radius: 2px;
     -webkit-box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
-    -moz-box-shadow: 0 6px 23px -2px rgba(0,0,0,0.27);
+    -moz-box-shadow: 0 6px 23px -2px rgba(0, 0, 0, 0.27);
     box-shadow: 0 6px 23px -2px rgb(0 0 0 / 27%);
     position: sticky;
     top: 5px;
@@ -163,6 +172,7 @@ body {
     margin-bottom: 0;
     position: relative;
 }
+
 .nav-config li:not(:last-child) .nav-link::before {
     content: " ";
     display: block;
@@ -193,11 +203,13 @@ body {
     left: 100%;
     z-index: 2;
 }
+
 .nav-config li .nav-link:hover {
     color: #FFDD00;
     border: none;
     isolation: unset;
 }
+
 .nav-config li .nav-link.active {
     border: none;
     color: #ffffff;
@@ -208,7 +220,7 @@ body {
     border-left: 10px solid #db0972;
 }
 
-.tab-content-config #text-area{
+.tab-content-config #text-area {
     border: 1px solid #c0c0c0;
     color: #555;
     background-color: #f5f5f5;
@@ -221,8 +233,8 @@ body {
     margin-block: 15px;
 }
 
-.tab-content-config #text-area:focus{
-    outline: none!important;
+.tab-content-config #text-area:focus {
+    outline: none !important;
     box-shadow: 0 0 10px #3b5998;
 }
 
@@ -251,13 +263,16 @@ body {
     margin: 10px auto;
     letter-spacing: 3px;
 }
+
 .setting-footer .btn-tab-footer.btn-call {
     border: 0.1em solid #1ddaed;
-    background: linear-gradient( 120deg, rgb(9, 214, 163), rgb(1, 130, 153));
+    background: linear-gradient(120deg, rgb(9, 214, 163), rgb(1, 130, 153));
 }
+
 .tab-pick-font ul {
     padding-inline: 15px;
 }
+
 .tab-pick-font ul li {
     display: inline;
     padding: 5px;
@@ -266,15 +281,18 @@ body {
     line-height: 40px;
     margin-bottom: 5px;
 }
-.tab-pick-font ul li a{
+
+.tab-pick-font ul li a {
     font-size: 14px;
     color: #000;
     cursor: pointer;
 }
+
 .tab-pick-font ul li a:hover {
     color: #FFDD00;
     text-decoration: none;
 }
+
 .tab-pick-font ul li a.current {
     color: red;
 }
@@ -282,14 +300,17 @@ body {
 .tab-pick-color li p {
     text-align: center;
 }
+
 .tab-pick-color li {
     cursor: pointer;
     min-height: 100px;
     padding: 5px;
 }
+
 .tab-pick-color li svg {
     width: 20px;
 }
+
 .tab-pick-color li span {
     font-size: 13px;
     display: block;
@@ -302,12 +323,14 @@ body {
     background-color: #f5f5f5;
     margin-bottom: 20px;
 }
+
 .tab-pick-color .image-by-color p {
     text-align: center;
     font-style: italic;
     font-size: 12px;
     margin-bottom: 5px;
 }
+
 /* END RIGHT CONTENT */
 
 
@@ -316,27 +339,35 @@ body {
 .bg-shadow-white {
     background: #f4fcfb;
 }
+
 .bg-shadow-orange {
     background: #f96f06;
 }
+
 .bg-shadow-mint {
     background: #80ffd9;
 }
+
 .bg-shadow-red {
     background: #eb1212;
 }
+
 .bg-shadow-deep-blue {
     background: #0274fc;
 }
+
 .bg-shadow-pink {
     background: #f50abe;
 }
+
 .bg-shadow-purple {
     background: #cd65ed;
 }
+
 .bg-shadow-green {
     background: #63e90b;
 }
+
 .bg-shadow-yellow {
     background: #f3da09;
 }
